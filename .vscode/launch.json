@@ -1,8 +1,4 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.0",
   "configurations": [
     {
       "name": "bookshop",
@@ -41,16 +37,103 @@
         "**/node_modules/**",
         "**/cds/lib/lazy.js",
         "**/cds/lib/req/cds-context.js",
-        "**/odata-v4/okra/**",
+        "**/odata-v4/okra/**"
       ]
     },
+    {
+      "name": "Start com.hse.sap.sample.openfe",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/com.hse.sap.sample.openfe",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "test/flpSandbox.html#comhsesapsampleopenfe-tile"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false"
+      }
+    },
+    {
+      "name": "Start com.hse.sap.sample.openfe Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/com.hse.sap.sample.openfe",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html#comhsesapsampleopenfe-tile"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false"
+      }
+    },
+    {
+      "name": "Start com.hse.sap.sample.openfe Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/com.hse.sap.sample.openfe",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html#comhsesapsampleopenfe-tile"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false"
+      }
+    }
   ],
+  "compounds": [],
+  "version": "0.2.0",
   "inputs": [
     {
       "type": "pickString",
       "id": "sample",
       "description": "Which sample do you want to start?",
-      "options": [ "bookshop", "fiori", "reviews", "reviews" ],
+      "options": [
+        "bookshop",
+        "fiori",
+        "reviews",
+        "reviews"
+      ],
       "default": "bookshop"
     }
   ]
